@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoTrack AI | Smart Waste Monitoring</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">🌱 EcoTrack <span>AI</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#report">Report Waste</a>
+        <a href="#incidents">Incidents</a>
+    </nav>
+</header>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">SMART ENVIRONMENTAL MONITORING</span>
+
+        <h1>Building a Cleaner Future with <span>EcoTrack AI</span></h1>
+
+        <p>
+            Report illegal waste dumping, monitor environmental incidents
+            and help create cleaner communities using intelligent technology.
+        </p>
+
+        <a href="#report" class="primary-btn">
+            Report an Incident →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- STATISTICS -->
+
+<section class="stats-section">
+
+    <div class="stat-card">
+        <h2 id="totalIncidents">0</h2>
+        <p>Total Incidents</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 id="pendingIncidents">0</h2>
+        <p>Pending Reports</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 id="verifiedIncidents">0</h2>
+        <p>Verified Cleanups</p>
+    </div>
+
+</section>
+
+
+<!-- REPORT SECTION -->
+
+<section class="report-section" id="report">
+
+    <div class="section-heading">
+        <span>TAKE ACTION</span>
+        <h2>Report Waste Dumping</h2>
+        <p>Help us identify and monitor illegal waste dumping.</p>
+    </div>
+
+
+    <div class="report-container">
+
+        <form id="incidentForm">
+
+            <div class="form-group">
+                <label for="title">Incident Title</label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Enter incident title"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="description">Description</label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Describe the waste dumping incident"
+                    rows="4"
+                ></textarea>
+            </div>
+
+
+            <div class="form-group">
+                <label for="wasteCategory">Waste Category</label>
+
+                <select id="wasteCategory" name="wasteCategory" required>
+
+                    <option value="">Select waste category</option>
+                    <option value="PLASTIC">Plastic</option>
+                    <option value="PAPER">Paper</option>
+                    <option value="METAL">Metal</option>
+                    <option value="GLASS">Glass</option>
+                    <option value="ORGANIC">Organic</option>
+                    <option value="CONSTRUCTION">Construction Waste</option>
+                    <option value="HAZARDOUS">Hazardous Waste</option>
+                    <option value="MIXED">Mixed Waste</option>
+                    <option value="OTHER">Other</option>
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="location">Location</label>
+
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Enter incident location"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="latitude">Latitude</label>
+
+                <input
+                    type="number"
+                    step="any"
+                    id="latitude"
+                    name="latitude"
+                    placeholder="Enter latitude"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="longitude">Longitude</label>
+
+                <input
+                    type="number"
+                    step="any"
+                    id="longitude"
+                    name="longitude"
+                    placeholder="Enter longitude"
+                >
+            </div>
+
+
+            <button type="button" id="locationButton">
+                📍 Detect My Location
+            </button>
+
+
+            <!-- PHOTO UPLOAD SECTION -->
+
+            <div class="form-group image-upload">
+
+                <label for="image">📷 Upload Waste Photograph</label>
+
+                <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/jpeg,image/png,image/webp"
+                    required
+                >
+
+                <small>
+                    Upload JPG, PNG or WEBP images. Maximum size: 5 MB.
+                </small>
+
+                <!-- IMAGE PREVIEW -->
+
+                <div id="imagePreviewContainer"
+                     style="display:none; margin-top:15px;">
+
+                    <p>Selected Image Preview:</p>
+
+                    <img
+                        id="imagePreview"
+                        src=""
+                        alt="Waste photograph preview"
+                        style="width:220px; height:160px;
+                        object-fit:cover; border-radius:12px;"
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- END PHOTO UPLOAD SECTION -->
+
+
+            <button type="submit" id="submitButton" class="primary-btn">
+                Submit Incident Report
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+
+        <div class="info-panel">
+
+            <h3>🌍 Make a Difference</h3>
+
+            <p>
+                Every report helps us identify environmental problems
+                and support faster cleanup activities.
+            </p>
+
+            <ul>
+                <li>Report illegal waste dumping</li>
+                <li>Share real incident photographs</li>
+                <li>Track environmental incidents</li>
+                <li>Support cleaner communities</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RECENT INCIDENTS -->
+
+<section class="incidents-section" id="incidents">
+
+    <div class="section-heading">
+        <span>LIVE MONITORING</span>
+        <h2>Recent Incidents</h2>
+        <p>Latest reported environmental incidents.</p>
+    </div>
+
+    <div id="incidentsList" class="incidents-list">
+        <p>Loading incidents...</p>
+    </div>
+
+    <button type="button" id="refreshButton">
+        Refresh Incidents
+    </button>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <h3>🌱 EcoTrack AI</h3>
+
+    <p>
+        Technology for a cleaner and greener tomorrow.
+    </p>
+
+    <p>© 2026 EcoTrack AI. All rights reserved.</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
